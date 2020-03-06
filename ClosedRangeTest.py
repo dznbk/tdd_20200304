@@ -50,3 +50,8 @@ def test_3_8の閉区間は3_5の閉区間と等価かどうかを判定でき�
 
 def test_4_7の閉区間は3_8の閉区間に完全に含まれると判定される(closed_range):
     assert closed_range.include_range(ClosedRange(4, 7))
+
+
+def test_閉区間が完全に含まれるかの判定の引数が閉区間インスタンスで無い場合はエラーとなる(closed_range):
+    with raises(TypeError):
+        closed_range.include_range(None);

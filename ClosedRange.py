@@ -16,6 +16,10 @@ class ClosedRange():
                 self.top == another.top
 
     def include_range(self, another):
+        # returnの判定はコンストラクタでのチェックを抜けている前提のため
+        # ClosedRangeインスタンスかを判定しています
+        if isinstance(another, ClosedRange) == False:
+            raise TypeError        
         return self.bottom <= another.bottom and \
                 another.top <= self.top
 
